@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 from anvil.tables import app_tables
 import anvil.server
 import anvil.plotly_templates
+import pandas as pd
 
 anvil.plotly_templates.set_default("rally")
 
@@ -57,3 +58,8 @@ def return_bar_charts():
     barmode="stack",
   )
   return fig
+
+@anvil.server.callable
+def return_test_df():
+  df = pd.DataFrame({"1":2, "3":4})
+  return df.to_markdown()

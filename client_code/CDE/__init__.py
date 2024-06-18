@@ -1,4 +1,4 @@
-from ._anvil_designer import ReportsTemplate
+from ._anvil_designer import CDETemplate
 from anvil import *
 import plotly.graph_objects as go
 import anvil.server
@@ -7,7 +7,7 @@ import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
 
-class Reports(ReportsTemplate):
+class CDE(CDETemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -41,5 +41,17 @@ class Reports(ReportsTemplate):
         values=[2650, 755, 9525]
       )
     ]
+
+  def location_drop_down_change(self, **event_args):
+    """This method is called when an item is selected"""
+    pass
+
+  def data_row_panel_1_show(self, **event_args):
+    """This method is called when the data row panel is shown on the screen"""
+    pass
+
+  def data_grid_1_show(self, **event_args):
+    """This method is called when the data grid is shown on the screen"""
+    return anvil.server.call('return_test_df')
     
 

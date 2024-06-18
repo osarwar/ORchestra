@@ -45,6 +45,11 @@ db_schema:
       admin_ui: {order: 3, width: 200}
       type: datetime
     title: Files
+  table_3:
+    client: none
+    server: full
+    columns: []
+    title: Table 3
 startup: {type: form, module: Frame}
 name: Dashboard Template A
 startup_form: null

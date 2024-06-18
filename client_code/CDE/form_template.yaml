@@ -1,0 +1,107 @@
+container:
+  type: ColumnPanel
+  properties: {col_widths: '{}'}
+components:
+- type: ColumnPanel
+  properties: {role: card, col_widths: '{}'}
+  name: location_card
+  layout_properties: {grid_position: 'WSLHTU,RGQMIU'}
+  components:
+  - type: Label
+    properties: {role: body, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: LOCATION}
+    name: label_2
+    layout_properties: {grid_position: 'KHHYTD,VLBHJI'}
+  - type: FlowPanel
+    properties: {}
+    name: flow_panel_1
+    layout_properties: {grid_position: 'UKUHCZ,JZCHYN'}
+    components:
+    - name: location_drop_down
+      properties:
+        items: [MAYS, MAIN]
+        include_placeholder: true
+        placeholder: MAYS
+        font: ''
+        font_size: 20
+        italic: false
+        bold: false
+      type: DropDown
+      event_bindings: {change: location_drop_down_change}
+      layout_properties: {}
+- type: ColumnPanel
+  properties: {role: card, col_widths: '{}', visible: true}
+  name: case_date_card
+  layout_properties: {grid_position: 'WSLHTU,GHTBXT'}
+  components:
+  - type: Label
+    properties: {role: body, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: DATE}
+    name: label_4
+    layout_properties: {grid_position: 'YTQXRZ,WVLWFF'}
+  - type: FlowPanel
+    properties: {}
+    name: flow_panel_3
+    layout_properties: {grid_position: 'LUUIKF,LIDJIO'}
+    components:
+    - name: date_picker_1
+      properties: {}
+      type: DatePicker
+  - name: spacer_1
+    properties: {height: -0.333343505859375}
+    type: Spacer
+    layout_properties: {grid_position: 'AOMWCI,UGYSMO'}
+- type: ColumnPanel
+  properties: {role: card, col_widths: '{}'}
+  name: card_3
+  layout_properties: {grid_position: 'WSLHTU,UEKQLD'}
+  components:
+  - type: Label
+    properties: {role: body, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: AVG CASE TIME}
+    name: label_3
+    layout_properties: {grid_position: 'KDZSKT,QUJOLO'}
+  - type: FlowPanel
+    properties: {}
+    name: flow_panel_2
+    layout_properties: {grid_position: 'DEOGJL,CGNKMQ'}
+    components:
+    - name: data_row_panel_1
+      properties: {}
+      type: DataRowPanel
+      event_bindings: {show: data_row_panel_1_show}
+      data_bindings:
+      - {property: item, code: 'self.item[''NA'']', writeback: false}
+- type: ColumnPanel
+  properties: {role: card, col_widths: '{}'}
+  name: card_1
+  layout_properties: {grid_position: 'TMIMPR,WMQMZT'}
+  components:
+  - type: Label
+    properties: {role: title, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: CASE LIST}
+    name: label_1
+    layout_properties: {grid_position: 'TYZKNT,WZQHNH'}
+  - name: data_grid_1
+    properties:
+      columns:
+      - {id: VJQQOR, title: Column 2, data_key: column_2}
+      - {id: JKSDUP, title: Column 1, data_key: column_1}
+      - {id: OJLQEN, title: Column 3, data_key: column_3}
+    type: DataGrid
+    components:
+    - name: repeating_panel_1
+      properties: {item_template: CDE.RowTemplate2}
+      type: RepeatingPanel
+    layout_properties: {grid_position: 'CGJVLS,HCKFZI'}
+    event_bindings: {show: data_grid_1_show}
+- type: ColumnPanel
+  properties: {role: card, col_widths: '{}'}
+  name: card_6
+  layout_properties: {grid_position: 'NXBMON,BRKAYU'}
+  components:
+  - type: Label
+    properties: {role: title, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Case Durations}
+    name: label_12
+    layout_properties: {grid_position: 'FQHSUJ,OXGDPN'}
+  - type: Plot
+    properties: {}
+    name: plot_3
+    layout_properties: {grid_position: 'KFRZLY,TMRYZA'}
+is_package: true

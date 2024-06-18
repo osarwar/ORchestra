@@ -5,7 +5,7 @@ import anvil.users
 import anvil.tables as tables
 import anvil.tables.query as q
 from anvil.tables import app_tables
-from ..Reports import Reports
+from ..CDE import CDE
 from ..Sales import Sales
 
 #This is your startup form. It has a sidebar with navigation links and a content panel where page content will be added.
@@ -31,15 +31,15 @@ class Frame(FrameTemplate):
     self.content_panel.add_component(Sales())
     #Change the color of the sales_page_link to indicate that the Sales page has been selected
     self.sales_page_link.background = app.theme_colors['Primary Container']
-    self.reports_page_link.background = "transparent"
+    self.CDE_page_link.background = "transparent"
 
   def optimizer_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
-    #Clear the content panel and add the Reports Form
+    #Clear the content panel and add the CDE Form
     self.content_panel.clear()
-    self.content_panel.add_component(Reports())
-    #Change the color of the sales_page_link to indicate that the Reports page has been selected
-    self.reports_page_link.background = app.theme_colors['Primary Container']
+    self.content_panel.add_component(CDE())
+    #Change the color of the sales_page_link to indicate that the CDE page has been selected
+    self.CDE_page_link.background = app.theme_colors['Primary Container']
     self.sales_page_link.background = "transparent"
 
   #If using the Users service, uncomment this code to log out the user:
