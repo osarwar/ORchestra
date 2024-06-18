@@ -11,7 +11,15 @@ class CDE(CDETemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
-    # Any code you write here will run before the form opens.
+    #Present users with a login form with just one line of code:
+    #anvil.users.login_with_form()
+
+    #Set the Plotly plots template to match the theme of the app
+    Plot.templates.default = "rally"
+    #When the app starts up, the Sales form will be added to the page
+    # self.content_panel.add_component(Sales())
+    #Change the color of the optimizer_page_link to indicate that the Optimizer page has been selected
+    self.CDE_page_link.background = app.theme_colors['Primary Container']
 
     #Populate plot_1 with dummy data. All three Bar charts will be added to the same figure
     self.plot_1.data = [

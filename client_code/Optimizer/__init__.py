@@ -1,4 +1,4 @@
-from ._anvil_designer import FrameTemplate
+from ._anvil_designer import OptimizerTemplate
 from anvil import *
 import anvil.server
 import anvil.users
@@ -9,7 +9,7 @@ from ..CDE import CDE
 from ..Sales import Sales
 
 #This is your startup form. It has a sidebar with navigation links and a content panel where page content will be added.
-class Frame(FrameTemplate):
+class Optimizer(OptimizerTemplate):
   def __init__(self, **properties):
     # Set Form properties and Data Bindings.
     self.init_components(**properties)
@@ -20,17 +20,17 @@ class Frame(FrameTemplate):
     Plot.templates.default = "rally"
     #When the app starts up, the Sales form will be added to the page
     self.content_panel.add_component(Sales())
-    #Change the color of the sales_page_link to indicate that the Sales page has been selected
-    self.sales_page_link.background = app.theme_colors['Primary Container']
+    #Change the color of the optimizer_page_link to indicate that the Optimizer page has been selected
+    self.optimizer_page_link.background = app.theme_colors['Primary Container']
     
 
-  def case_duration_page_click(self, **event_args):
+  def CDE_page_link_click(self, **event_args):
     """This method is called when the link is clicked"""
     #Clear the content panel and add the Sales Form
     self.content_panel.clear()
     self.content_panel.add_component(Sales())
-    #Change the color of the sales_page_link to indicate that the Sales page has been selected
-    self.sales_page_link.background = app.theme_colors['Primary Container']
+    #Change the color of the optimizer_page_link to indicate that the Sales page has been selected
+    self.optimizer_page_link.background = app.theme_colors['Primary Container']
     self.CDE_page_link.background = "transparent"
 
   def optimizer_page_link_click(self, **event_args):
@@ -38,9 +38,9 @@ class Frame(FrameTemplate):
     #Clear the content panel and add the CDE Form
     self.content_panel.clear()
     self.content_panel.add_component(CDE())
-    #Change the color of the sales_page_link to indicate that the CDE page has been selected
+    #Change the color of the optimizer_page_link to indicate that the CDE page has been selected
     self.CDE_page_link.background = app.theme_colors['Primary Container']
-    self.sales_page_link.background = "transparent"
+    self.optimizer_page_link.background = "transparent"
 
   #If using the Users service, uncomment this code to log out the user:
   # def signout_link_click(self, **event_args):
